@@ -1,0 +1,4 @@
+vi:
+  listing-class: listing-grid
+  card-class: product-row
+  card-url-container-class: title

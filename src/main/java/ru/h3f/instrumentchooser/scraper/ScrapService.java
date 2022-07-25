@@ -14,13 +14,15 @@ import java.util.stream.Collectors;
 public class ScrapService {
     private final CategoryRepository categoryRepository;
     private final CategoryScraper categoryScraper;
+    private final GoodsCardScraper goodsCardScraper;
 
-    public void scrapCards() {
+    public void parseWebsite() {
         var cardUrls = categoryRepository.findAll()
                 .stream()
                 .map(categoryScraper::getCardUrls)
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
         log.info("parsed card urls: {}", cardUrls);
+        cardUrls.forEach(System.out::println);
     }
 }
